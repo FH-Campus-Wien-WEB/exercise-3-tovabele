@@ -43,14 +43,19 @@ app.get('/genres', function (req, res) {
    return only movies that have the given genre
  */
 app.get('/movies', function (req, res) {
-    const genre = req.params.genre
-    //const exists = genre in movieModel
+    const movies = Object.values(movieModel)
+    const genreMovies = []
 
-    if (genre) {
-        res.send(movieModel[genre]);
+
+    if (req.query.genre) {
+        movies.forEach(movie => {
+            if (movie.Genres.includes(req.query.genre))
+                genreMovies.push(movie)
+        })
+    res.send(genreMovies);
     }
     else {
-        res.send(movieModel);
+        res.send(movies);
     }
 //    let movies = Object.values(movieModel.genre)
 })
