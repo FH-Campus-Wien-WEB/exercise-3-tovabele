@@ -17,7 +17,6 @@ main {
 /* Center the nav's header and list */
 nav {
     display: flex;
-    flex-direction: column;
     align-items: center;
 }
 
@@ -37,6 +36,10 @@ ul {
     background-color: aquamarine;
 }
 
+button {
+    font-size: 120%;
+}
+
 /* Task 2.1. Lay out the childs of the 'body' using Grid Template Areas.
     As areas you can use: h for header, n for nav, m for main, and f for footer
 */
@@ -47,10 +50,14 @@ header {
 
 nav {
     display: flex;
-    align-items: start;
+    align-items: stretch;
+    flex-direction: row;
+    flex-wrap: wrap;
     grid-area: n;
-    grid-auto-rows: minmax(192px, 256px);
 }
+/*
+
+*/
 
 main {
     grid-area: m;
@@ -62,45 +69,48 @@ footer {
     grid-auto-rows: minmax(64px, 128px);
 }
 
-.wrapper {
+body {
     display: grid;
     grid-template-areas:
-        "h h"
-        "n m"
-        "f f"
+        "h"
+        "n"
+        "m"
+        "f"
 }
 
-@media only screen and (max-width: 640px) {
-    li {
-        float: left; 
-        margin: 4px;
-    }
-    nav{
+li {
+    float: left;
+    margin: 4px;
+}
+
+@media only screen and (min-width: 640px) {
+
+    nav {
         display: flex;
-        flex-wrap: wrap;
-        flex-direction: row;
+        grid-auto-rows: minmax(192px, 256px);
+        flex-wrap: nowrap;
+        flex-direction: column;
         align-items: center;
+        grid-area: n;
     }
 
     button {
-        
-        font-size: 120%;
+        font-size: 105%;
     }
-    
 
-
-    /*    .genre_item {
-        margin: 0px,10px,10px,0px;
-    }
-*/
-    .wrapper {
+    body {
         display: grid;
         grid-template-areas:
-            "h"
-            "n"
-            "m"
-            "f"
+            "h h"
+            "n m"
+            "f f"
     }
+
+    li {
+        float: none;
+        margin: 4px;
+    }
+
 }
 
 
