@@ -4,6 +4,9 @@ input,
 select,
 textarea {
   width: 100%;
+  background-color: lightcyan;
+  border-style: dotted;
+
 }
 
 div {
