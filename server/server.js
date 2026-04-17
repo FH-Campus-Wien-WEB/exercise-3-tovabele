@@ -57,7 +57,7 @@ app.get('/movies', function (req, res) {
     else {
         res.send(movies);
     }
-//    let movies = Object.values(movieModel.genre)
+
 })
 
 // Configure a 'get' endpoint for a specific movie
