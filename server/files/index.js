@@ -21,7 +21,7 @@ function formatRuntime(runtime) {
 function appendMovie(movie, element) {
     new ElementBuilder("article").id(movie.imdbID)
         .append(new ElementBuilder("img").with("src", movie.Poster))
-        .append(new ElementBuilder("h1").text(movie.Title))
+        .append(new ElementBuilder("h2").text(movie.Title))
         .append(new ElementBuilder("p")
             .append(new ElementBuilder("button").text("Edit")
                 .listener("click", () => location.href = "edit.html?imdbID=" + movie.imdbID)))

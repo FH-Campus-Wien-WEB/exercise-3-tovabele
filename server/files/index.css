@@ -1,8 +1,11 @@
 @import url(base.css);
 
 h1 {
+    
     font-size: 200%;
+    font-family: Perpetua;
     margin: 8px 0px;
+    color: #FFFFFF60;
 }
 
 /* Constrain the page to the viewport */
@@ -12,12 +15,32 @@ html, body {
 
 main {
     overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    grid-area: m;
 }
+
+/*    background-color: pink;*/
+
+
+/*
+    Stuff that doesn't do anything/ is used wrong/really makes me mad
+    display: flex;
+    align-items: center
+    align-items: stretch;
+*/
+
 
 /* Center the nav's header and list */
 nav {
     display: flex;
     align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    grid-area: n;
+    display: flex;
 }
 
     /* navigation buttons have full width */
@@ -43,33 +66,8 @@ button {
 /* Task 2.1. Lay out the childs of the 'body' using Grid Template Areas.
     As areas you can use: h for header, n for nav, m for main, and f for footer
 */
-
-header {
-    grid-area: h;
-}
-
-nav {
-    display: flex;
-    align-items: stretch;
-    flex-direction: row;
-    flex-wrap: wrap;
-    grid-area: n;
-}
-/*
-
-*/
-
-main {
-    grid-area: m;
-    grid-auto-columns: auto;
-}
-
-footer {
-    grid-area: f;
-    grid-auto-rows: minmax(64px, 128px);
-}
-
 body {
+    background-color: black;
     display: grid;
     grid-template-areas:
         "h"
@@ -78,6 +76,24 @@ body {
         "f"
 }
 
+header {
+    grid-area: h;
+/*    background-color: blueviolet;*/
+}
+/*
+
+*/
+
+
+footer {
+/*    background-color: yellow;*/
+    grid-area: f;
+    grid-auto-rows: minmax(64px, 128px);
+    color: #FFFFFF60;
+
+}
+
+
 li {
     float: left;
     margin: 4px;
@@ -85,7 +101,20 @@ li {
 
 @media only screen and (min-width: 640px) {
 
+    body {
+        background-color: darkcyan;
+        display: grid;
+
+        grid-template-columns: 192px 70%;
+        grid-template-rows: 64px auto 128px;
+        grid-template-areas:
+            "h h"
+            "n m"
+            "f f"
+    }
+
     nav {
+/*        background-color: greenyellow;*/
         display: flex;
         grid-auto-rows: minmax(192px, 256px);
         flex-wrap: nowrap;
@@ -98,12 +127,13 @@ li {
         font-size: 105%;
     }
 
-    body {
-        display: grid;
-        grid-template-areas:
-            "h h"
-            "n m"
-            "f f"
+    main {
+/*        background-color: brown;*/
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: revert;
+        align-items: flex-start;
+        overflow-y: auto;
     }
 
     li {
@@ -116,17 +146,10 @@ li {
 
 
 /* Task 3.1. Make the header element a flex container and center its children
-   vertically and horizontally.
- */
-
-
+   vertically and horizontally. */
 /* Task 3.2. Make the list items of the unordered list in the nav element a flex container, 
-   use column direction and center the child items
- */
-
+   use column direction and center the child items */
 /* Task 3.3. Make the main element a Flexbox container */
-
-
 /* Task 3.4. Make the footer's ul a Flexbox container */
 
 
@@ -136,10 +159,10 @@ img {
 }
 
 article {
-    background-color: lightgray;
+    width: 300px;
+    background-color: #FFFFFF60;
     border-radius: 16px;
     padding: 16px;
-    width: 384px;
     margin: 8px;
 }
 

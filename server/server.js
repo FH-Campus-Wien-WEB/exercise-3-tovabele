@@ -46,7 +46,9 @@ app.get('/movies', function (req, res) {
     const movies = Object.values(movieModel)
     const genreMovies = []
 
-
+    // tommi meint, flat map geht hier besser
+    // rahmgeschnetzeltes
+    // new Set(); macht ein array mit unique items
     if (req.query.genre) {
         movies.forEach(movie => {
             if (movie.Genres.includes(req.query.genre))
